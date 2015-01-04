@@ -1,0 +1,47 @@
+#!/bin/sh
+# Copyright (C) 2006 OpenWrt.org
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+mount none /dev/ -t tmpfs
+mount sysfs /sys -t sysfs
+mount proc /proc -t proc
+mount none /tmp -t tmpfs
+mknod /dev/console c 5 1
+mknod /dev/mem  c 1 1
+mknod /dev/null c 1 3
+mknod /dev/zero c 1 5
+mknod /dev/ttyS0 c 4 64
+mknod /dev/hda b 3 0
+mknod /dev/hda1 b 3 1
+mknod /dev/hda2 b 3 2
+mknod /dev/hdb b 3 64
+mknod /dev/hdb1 b 3 65
+mknod /dev/hd2 b 3 66
+
+exec </dev/console >/dev/console 2>&0
+
+echo "- debug -"
+set -x
+(
+depmod -a
+modprobe mydebug && {
+echo i2cs_88e11 > /proc/debug
+echo m2 0x14 0xcf1 > /proc/debug
+echo m2 0 0x9140 > /proc/debug
+echo d2 0 32 > /proc/debug
+echo cs5536_gpio 27 out:1 out_val:1 > /proc/debug
+echo cs5536_gpio 26 out:1 out_val:1 > /proc/debug
+echo cs5536_gpio 27 > /proc/debug
+echo cs5536_gpio 26 > /proc/debug
+tar -C /tmp -jxf /usr/share/fpga/FPGA_pro.tar.bz2
+gpio_fpga -o /tmp/FPGA_pro.bin
+echo cs5536_gpio 27 out:1 out_val:0 > /proc/debug
+sleep 1
+echo cs5536_gpio 27 out:1 out_val:1 > /proc/debug
+modprobe nsa
+}
+) &
+while :;do
+/debug/ttyrun /bin/sh < /dev/ttyS0 >/dev/ttyS0 2>/dev/ttyS0
+sleep 1;
+done
+

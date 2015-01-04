@@ -1,0 +1,19 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=12
+STOP=12
+
+
+start() {
+mount n /sys -t sysfs
+echo 1 > /sys/module/devinet/parameters/nonetcfg
+echo 1 > /sys/module/rtnetlink/parameters/nonetcfg
+echo 1 > /sys/module/dev/parameters/nonetcfg
+}
+
+stop() {
+echo 0 > /sys/module/devinet/parameters/nonetcfg
+echo 0 > /sys/module/rtnetlink/parameters/nonetcfg
+echo 0 > /sys/module/dev/parameters/nonetcfg
+}

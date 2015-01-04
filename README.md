@@ -1,5 +1,14 @@
 This is the buildsystem for the OpenWrt Linux distribution.
 
+You can get base config from ./configs/ dirs.
+Use "cp ./configs/[arch model]_config .config"
+There is some configs:
+ls1bdev_official_config		---base config support from loongson offcial, but not use anyway.
+ls1bdev_tiny_config		---support compile a tiny rootfs for loongson ls1b, boot from initrd.
+mt7620_config		---support mtk mt7620, but not test. compile have some bug not fix.
+tq210_tiny_config		---support for samsung s5pv210, use tq210 board, kernel & drivers.
+							have problem in toolchain.
+
 Please use "make menuconfig" to configure your appreciated
 configuration for the toolchain and firmware.
 
