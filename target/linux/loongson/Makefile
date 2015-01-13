@@ -6,11 +6,13 @@
 #
 include $(TOPDIR)/rules.mk
 
-BOARD:=ls1bdev
-BOARDNAME:=ls1b dev board
-FEATURES:=squashfs jffs2
+ARCH:=mipsel
+BOARD:=loongson
+BOARDNAME:=Loongson SoC
+#FEATURES:=squashfs jffs2
 LINUX_VERSION:=3.3
-SUBTARGETS=mipsel
+SUBTARGETS=ls1b
+CFLAGS:=-Os -pipe -mips32r2 -mtune=mips32r2 -funit-at-a-time
 
 include $(INCLUDE_DIR)/target.mk
 #DEFAULT_PACKAGES+=uboot-ifxmips

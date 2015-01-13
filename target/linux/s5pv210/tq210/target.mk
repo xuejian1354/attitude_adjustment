@@ -1,8 +1,7 @@
-ARCH:=arm
-SUBTARGET:=arm
-BOARDNAME:=tq210
+SUBTARGET:=tq210
+BOARDNAME:=TQ210 base boards
 
 define Target/Description
-	Build firmware images for tq210 dev board
+	Build firmware images for tq210 base boards
 endef
 
