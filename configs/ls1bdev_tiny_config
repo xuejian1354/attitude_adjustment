@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # OpenWrt version: Attitude Adjustment (unknown)
-# Tue Jan 13 21:20:49 2015
+# Wed Jan 14 16:28:37 2015
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -423,8 +423,8 @@ CONFIG_EXTERNAL_CPIO=""
 #
 # Root filesystem archives
 #
-CONFIG_TARGET_ROOTFS_CPIOGZ=y
-CONFIG_TARGET_ROOTFS_TARGZ=y
+# CONFIG_TARGET_ROOTFS_CPIOGZ is not set
+# CONFIG_TARGET_ROOTFS_TARGZ is not set
 
 #
 # Root filesystem images
@@ -432,6 +432,7 @@ CONFIG_TARGET_ROOTFS_TARGZ=y
 # CONFIG_TARGET_ROOTFS_EXT4FS is not set
 # CONFIG_TARGET_ROOTFS_JFFS2 is not set
 # CONFIG_TARGET_ROOTFS_SQUASHFS is not set
+CONFIG_TARGET_ROOTFS_YAFFS2=y
 
 #
 # Image Options

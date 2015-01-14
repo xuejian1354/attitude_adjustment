@@ -42,6 +42,9 @@ config BIG_ENDIAN
 config USES_INITRAMFS
 	bool
 
+config USES_YAFFS2
+	bool
+
 config USES_SQUASHFS
 	bool
 

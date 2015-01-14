@@ -18,7 +18,7 @@ include $(INCLUDE_DIR)/image.mk
 #endef
 
 define Image/BuildKernel
-	cp $(KDIR)/linux-$(LINUX_VERSION)/vmlinuz $(BIN_DIR)/openwrt-$(SUBTARGETS)-vmlinuz
+	cp $(KDIR)/linux-$(LINUX_VERSION)/vmlinuz $(BIN_DIR)/$(IMG_PREFIX)-vmlinuz
 endef
 
 define Image/Build/squashfs

@@ -119,6 +119,13 @@ ifneq ($(CONFIG_TARGET_ROOTFS_TARGZ),)
   endef
 endif
 
+ifneq ($(CONFIG_TARGET_ROOTFS_YAFFS2),)
+  define Image/mkfs/yaffs2
+		( [ -x $(MKYAFFS2) ] && $(MKYAFFS2) $(TARGET_DIR) $(BIN_DIR)/$(IMG_PREFIX)-rootfs.yaffs2 > /dev/null; \
+		  [ -x $(MKYAFFS2) ] || (echo MKYAFFS2=$(MKYAFFS2) error, set MKYAFFS2 correct path in include/host.mk && return 1))
+  endef
+endif
+
 ifneq ($(CONFIG_TARGET_ROOTFS_EXT4FS),)
   E2SIZE=$(shell echo $$(($(CONFIG_TARGET_ROOTFS_PARTSIZE)*1024)))
 
@@ -185,6 +192,7 @@ define BuildImage
 		$(call Image/mkfs/iso)
 		$(call Image/mkfs/jffs2)
 		$(call Image/mkfs/squashfs)
+		$(call Image/mkfs/yaffs2)
 		$(call Image/mkfs/ubifs)
 		$(call Image/Checksum)
   else
