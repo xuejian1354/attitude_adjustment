@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # OpenWrt version: Attitude Adjustment (unknown)
-# Mon Dec  8 20:28:40 2014
+# Tue Jan 13 21:20:49 2015
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -36,6 +36,7 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ixp4xx is not set
 # CONFIG_TARGET_leon is not set
 # CONFIG_TARGET_lantiq is not set
+CONFIG_TARGET_loongson=y
 # CONFIG_TARGET_malta is not set
 # CONFIG_TARGET_kirkwood is not set
 # CONFIG_TARGET_orion is not set
@@ -46,7 +47,9 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_rdc is not set
 # CONFIG_TARGET_au1000 is not set
 # CONFIG_TARGET_ramips is not set
+# CONFIG_TARGET_ralink is not set
 # CONFIG_TARGET_s3c24xx is not set
+# CONFIG_TARGET_s5pv210 is not set
 # CONFIG_TARGET_ps3 is not set
 # CONFIG_TARGET_sparc is not set
 # CONFIG_TARGET_ar7 is not set
@@ -55,7 +58,6 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_omap4 is not set
 # CONFIG_TARGET_ubicom32 is not set
 # CONFIG_TARGET_uml is not set
-CONFIG_TARGET_ls1bdev=y
 # CONFIG_TARGET_x86 is not set
 # CONFIG_TARGET_ramips_rt288x is not set
 # CONFIG_TARGET_ramips_rt305x is not set
@@ -81,6 +83,7 @@ CONFIG_TARGET_ls1bdev=y
 # CONFIG_TARGET_at91_9g20 is not set
 # CONFIG_TARGET_at91_9260 is not set
 # CONFIG_TARGET_at91_9263 is not set
+# CONFIG_TARGET_ralink_mt7620 is not set
 # CONFIG_TARGET_ixp4xx_generic is not set
 # CONFIG_TARGET_ixp4xx_harddisk is not set
 # CONFIG_TARGET_ar71xx_generic is not set
@@ -91,17 +94,18 @@ CONFIG_TARGET_ls1bdev=y
 # CONFIG_TARGET_adm5120_router_le is not set
 # CONFIG_TARGET_adm5120_router_be is not set
 # CONFIG_TARGET_adm5120_rb1xx is not set
+# CONFIG_TARGET_s5pv210_tq210 is not set
 # CONFIG_TARGET_s3c24xx_openmoko_gta02 is not set
 # CONFIG_TARGET_au1000_au1500 is not set
 # CONFIG_TARGET_au1000_au1550 is not set
 # CONFIG_TARGET_ps3_petitboot is not set
+CONFIG_TARGET_loongson_ls1b=y
 # CONFIG_TARGET_malta_le is not set
 # CONFIG_TARGET_malta_be is not set
 # CONFIG_TARGET_xburst_qi_lb60 is not set
 # CONFIG_TARGET_xburst_n516 is not set
 # CONFIG_TARGET_xburst_n526 is not set
 # CONFIG_TARGET_xburst_id800wt is not set
-CONFIG_TARGET_ls1bdev_mipsel=y
 # CONFIG_TARGET_pxa_Default is not set
 # CONFIG_TARGET_pxa_Gumstix is not set
 # CONFIG_TARGET_ramips_rt288x_Default is not set
@@ -204,6 +208,8 @@ CONFIG_TARGET_ls1bdev_mipsel=y
 # CONFIG_TARGET_omap24xx_n810-gui is not set
 # CONFIG_TARGET_ep93xx_Default is not set
 # CONFIG_TARGET_ep93xx_Simone is not set
+# CONFIG_TARGET_ralink_mt7620_Default is not set
+# CONFIG_TARGET_ralink_mt7620_PBX20 is not set
 # CONFIG_TARGET_ixp4xx_generic_Default is not set
 # CONFIG_TARGET_ixp4xx_generic_Atheros-ath5k is not set
 # CONFIG_TARGET_ixp4xx_generic_NSLU2 is not set
@@ -344,6 +350,7 @@ CONFIG_TARGET_ls1bdev_mipsel=y
 # CONFIG_TARGET_adm5120_router_be_P335WT is not set
 # CONFIG_TARGET_adm5120_rb1xx_RouterBoard is not set
 # CONFIG_TARGET_rb532_Default is not set
+# CONFIG_TARGET_s5pv210_tq210_Generic is not set
 # CONFIG_TARGET_s3c24xx_openmoko_gta02_openmoko-gta02-minimal is not set
 # CONFIG_TARGET_s3c24xx_openmoko_gta02_openmoko-gta02-full is not set
 # CONFIG_TARGET_amazon_Default is not set
@@ -359,6 +366,7 @@ CONFIG_TARGET_ls1bdev_mipsel=y
 # CONFIG_TARGET_atheros_Default is not set
 # CONFIG_TARGET_ps3_petitboot_Default is not set
 # CONFIG_TARGET_realview_Default is not set
+CONFIG_TARGET_loongson_ls1b_Generic=y
 # CONFIG_TARGET_malta_le_Default is not set
 # CONFIG_TARGET_malta_be_Default is not set
 # CONFIG_TARGET_adm8668_Default is not set
@@ -368,7 +376,6 @@ CONFIG_TARGET_ls1bdev_mipsel=y
 # CONFIG_TARGET_xburst_n516_Default is not set
 # CONFIG_TARGET_xburst_n526_Default is not set
 # CONFIG_TARGET_xburst_id800wt_Default is not set
-CONFIG_TARGET_ls1bdev_mipsel_Generic=y
 # CONFIG_TARGET_octeon_generic is not set
 # CONFIG_TARGET_octeon_mototech is not set
 # CONFIG_TARGET_mpc83xx_Default is not set
@@ -382,9 +389,9 @@ CONFIG_TARGET_ls1bdev_mipsel_Generic=y
 # CONFIG_TARGET_rdc_r8610 is not set
 # CONFIG_TARGET_rdc_sitecom is not set
 CONFIG_HAS_SUBTARGETS=y
-CONFIG_TARGET_BOARD="ls1bdev"
-CONFIG_TARGET_ARCH_PACKAGES="ls1bdev"
-CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -funit-at-a-time"
+CONFIG_TARGET_BOARD="loongson"
+CONFIG_TARGET_ARCH_PACKAGES="loongson"
+CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mips32r2 -mtune=mips32r2 -funit-at-a-time"
 CONFIG_LINUX_3_3=y
 CONFIG_DEFAULT_base-files=y
 CONFIG_DEFAULT_busybox=y
@@ -404,8 +411,6 @@ CONFIG_DEFAULT_ppp-mod-pppoe=y
 CONFIG_DEFAULT_uci=y
 CONFIG_AUDIO_SUPPORT=y
 CONFIG_USB_SUPPORT=y
-CONFIG_USES_SQUASHFS=y
-CONFIG_USES_JFFS2=y
 CONFIG_mipsel=y
 CONFIG_ARCH="mipsel"
 
@@ -419,7 +424,7 @@ CONFIG_EXTERNAL_CPIO=""
 # Root filesystem archives
 #
 CONFIG_TARGET_ROOTFS_CPIOGZ=y
-# CONFIG_TARGET_ROOTFS_TARGZ is not set
+CONFIG_TARGET_ROOTFS_TARGZ=y
 
 #
 # Root filesystem images
@@ -496,7 +501,7 @@ CONFIG_KERNEL_GIT_LOCAL_REPOSITORY=""
 # CONFIG_BUILD_LOG is not set
 # CONFIG_SRC_TREE_OVERRIDE is not set
 # CONFIG_TARGET_OPTIONS is not set
-CONFIG_TARGET_OPTIMIZATION="-Os -pipe -funit-at-a-time"
+CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mips32r2 -mtune=mips32r2 -funit-at-a-time"
 CONFIG_SOFT_FLOAT=y
 # CONFIG_EXTERNAL_TOOLCHAIN is not set
 CONFIG_NEED_TOOLCHAIN=y
@@ -1951,6 +1956,7 @@ CONFIG_PACKAGE_kmod-input-evdev=y
 # CONFIG_PACKAGE_kmod-usb-net is not set
 # CONFIG_PACKAGE_kmod-usb-ohci is not set
 # CONFIG_PACKAGE_kmod-usb-printer is not set
+# CONFIG_PACKAGE_kmod-usb-rt305x-dwc_otg is not set
 # CONFIG_PACKAGE_kmod-usb-serial is not set
 # CONFIG_PACKAGE_kmod-usb-sierrawireless-directip is not set
 # CONFIG_PACKAGE_kmod-usb-storage is not set

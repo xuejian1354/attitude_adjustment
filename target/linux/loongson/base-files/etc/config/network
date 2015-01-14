@@ -1,9 +1,9 @@
 #### mngt0 configuration
-config interface mngt0
+config interface lan
 	option ifname	"eth0"
 	option proto	static
-	option ipaddr	192.168.1.254
-	option netmask	255.255.255.0
+	option ipaddr	172.16.2.254
+	option netmask	255.255.0.0
 	option 'enabled' '1'
 
 #### loopback configuration
