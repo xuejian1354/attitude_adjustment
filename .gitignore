@@ -1,6 +1,9 @@
 *.o
 .DS_Store
 .*.swp
+*.index
+*.tmp
+*.svn
 /env
 /dl
 /.config

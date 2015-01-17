@@ -1,0 +1,9 @@
+
+config defaults
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'REJECT'
+
+config include
+	option path '/etc/firewall.user'
+

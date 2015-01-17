@@ -59,19 +59,26 @@ $dir/helpers/setup_dnsmasq.sh
 $dir/helpers/setup_system.sh
 $dir/helpers/setup_olsrd.sh
 $dir/helpers/setup_firewall.sh
+$dir/helpers/setup_ssh.sh
+$dir/helpers/setup_uhttpd.sh
+$dir/helpers/setup_widgets.sh
 
 if [ "$wan_proto" == "static" ] && [ -n "$wan_ip4addr" ] && [ -n "$wan_netmask" ]; then
 	$dir/helpers/setup_wan_static.sh
+fi
+
+if [ "$wan_proto" == "dhcp" ]; then
+	$dir/helpers/setup_wan_dhcp.sh
 fi
 
 if [ "$lan_proto" == "static" ] && [ -n "$lan_ip4addr" ] && [ -n "$lan_netmask" ]; then
 	$dir/helpers/setup_lan_static.sh
 fi
 
-if [ "$profile_ipv6" == 1 ] && [ "$has_ipv6" = 1 ]; then
+if [ "$ipv6_enabled" == 1 ] && [ "$has_ipv6" = 1 ]; then
 	$dir/helpers/setup_lan_ipv6.sh
 	# Setup auto-ipv6
-	if [ "$profile_ipv6_config" = "auto-ipv6-dhcpv6" ]; then
+	if [ -n "$(echo "$ipv6_config" |grep auto-ipv6)" ]; then
 		$dir/helpers/setup_auto-ipv6.sh
 	fi
 fi
@@ -102,8 +109,8 @@ for net in $networks; do
 	$dir/helpers/setup_splash.sh $net
 	$dir/helpers/setup_firewall_interface.sh $net
 
-	if [ "$profile_ipv6" == 1 ] && [ "$has_ipv6" = 1 ]; then
-		$dir/helpers/setup_radvd_interface.sh $net
+	if [ -n "$(echo "$ipv6_config" |grep auto-ipv6)" ]; then
+		$dir/helpers/setup_auto-ipv6-interface.sh $net
 	fi
 done
 

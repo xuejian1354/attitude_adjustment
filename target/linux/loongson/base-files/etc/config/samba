@@ -1,0 +1,6 @@
+config samba
+	option 'name'			'lyls1b'
+	option 'workgroup'		'WORKGROUP'
+	option 'description'		'LYLS1B'
+	option 'homes'			'1'
+
