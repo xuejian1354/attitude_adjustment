@@ -4,6 +4,7 @@
 *.index
 *.tmp
 *.svn
+/src
 /env
 /dl
 /.config

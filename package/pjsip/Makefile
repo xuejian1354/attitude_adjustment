@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pjsip
-PKG_VERSION:=1.14.2
+PKG_VERSION:=2.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=pjproject-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://www.pjsip.org/release/$(PKG_VERSION)/
-PKG_MD5SUM:=05428502384c16e7abd85f047e6e2f6c
+PKG_MD5SUM:=8440e43242c439ae5ec30b5b85005fce
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
@@ -70,8 +70,36 @@ CONFIGURE_ARGS += \
 EXTRA_CFLAGS:=-I$(STAGING_DIR)/usr/include/drv_tapi -I$(STAGING_DIR)/usr/include/drv_vmmc
 endif
 
+ifeq ($(BUILD_VARIANT),api)
+CONFIGURE_ARGS += \
+	--disable-libsamplerate \
+	--disable-ipp \
+	--disable-ssl \
+	--disable-sound \
+	--disable-video  \
+	--disable-floating-point \
+	--disable-oss \
+	--disable-resample \
+	--disable-large-filter \
+	--disable-small-filter \
+	--disable-speex-aec \
+	--disable-g711-codec \
+	--disable-l16-codec \
+	--disable-gsm-codec \
+	--disable-g722-codec \
+	--disable-g7221-codec \
+	--disable-speex-codec \
+	--disable-ilbc-codec \
+	--disable-sdl \
+	--disable-ffmpeg \
+	--disable-v4l2 \
+	--disable-openh264 \
+	--disable-libyuv
+endif
+
 Package/pjsip-oss=$(call Package/pjsip-template,oss,BROKEN)
 Package/pjsip-ltq-tapi=$(call Package/pjsip-template,ltq-tapi,$(LTQ_TAPI_DEPENDS))
+Package/pjsip-api=$(call Package/pjsip-template,api,)
 
 USE_LOCAL=$(shell ls ./src/ 2>/dev/null >/dev/null && echo 1)
 ifneq ($(USE_LOCAL),)
@@ -93,9 +121,12 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/usr
-	$(CP) $(PKG_INSTALL_DIR)/usr/pjsip-$(BUILD_VARIANT) $(1)/usr
+	$(INSTALL_DIR) $(1)/usr/include/pjsip-api
+	$(CP) $(PKG_INSTALL_DIR)/usr/pjsip-$(BUILD_VARIANT)/include/* $(1)/usr/include/pjsip-api
+	$(INSTALL_DIR) $(1)/usr/lib/pjsip-api
+	$(CP) $(PKG_INSTALL_DIR)/usr/pjsip-$(BUILD_VARIANT)/lib/* $(1)/usr/lib/pjsip-api
 endef
 
 $(eval $(call BuildPackage,pjsip-oss))
 $(eval $(call BuildPackage,pjsip-ltq-tapi))
+$(eval $(call BuildPackage,pjsip-api))
