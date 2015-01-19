@@ -56,8 +56,8 @@ define Build/InstallDev
 endef
 
 define Package/shome-app/install
-    $(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/shome $(1)/usr/bin/
+    $(INSTALL_DIR) $(1)/usr/local/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/shome $(1)/usr/local/bin/
 endef
 
 $(eval $(call BuildPackage,shome-app))
