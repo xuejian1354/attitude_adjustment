@@ -34,7 +34,7 @@ define Package/libjsoncpp/description
 endef
 
 CMAKE_OPTIONS += \
-	-DJSONCPP_LIB_BUILD_SHARED=ON \
+	-DJSONCPP_LIB_BUILD_SHARED=OFF \
 	-DJSONCPP_WITH_TESTS=OFF
 
 
@@ -42,7 +42,7 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include/jsoncpp
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/json/* $(1)/usr/include/jsoncpp
 	$(INSTALL_DIR) $(1)/usr/lib/jsoncpp
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libjsoncpp.so* $(1)/usr/lib/jsoncpp
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libjsoncpp.* $(1)/usr/lib/jsoncpp
 	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/jsoncpp.pc $(1)/usr/lib/pkgconfig/
 endef

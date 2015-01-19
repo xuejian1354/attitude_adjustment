@@ -8,12 +8,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shome
-PKG_VERSION:=1.0
-PKG_RELEASE=1
+PKG_VERSION:=2015-01-19
+PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=file://$(TOPDIR)/src
-PKG_MD5SUM:=46d37655cd4619df0a24e8f096f196b3
+
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git@192.168.1.111:openwrt/shome.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=7f7c56bbf4a7e61df52863d4ff873391960e219a
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
+PKG_MAINTAINER:=Sam Chen <xuejian1354@gmail.com>
+
 
 PKG_CONFIG_DEPENDS := \
 	CONFIG_PACKAGE_shome-app
@@ -34,12 +39,9 @@ define Package/shome-app
   $(call Package/shome/Default)
   TITLE:=SHome, Projects for Smart Home Applications
   DEPENDS:= +libsqlite3 +libjsoncpp +pjsip-api \
-			+boost-timer +boost-filesystem \
-			+boost-iostreams +boost-math \
-			+boost-program_options +boost-regex \
-			+boost-serialization +boost-signals \
-			+boost-locale +boost-random \
-			+boost-thread
+			+boost-chrono +boost-system \
+			+boost-regex +boost-date_time \
+			+boost-thread +libopenssl
 endef
 
 define Package/shome-app/description
@@ -47,12 +49,15 @@ SHome app is a program that manage smart home feature function.
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR);
+	$(MAKE) -C $(PKG_BUILD_DIR) all
 endef
 
 define Build/InstallDev
-	echo $(INSTALL_DIR)
 endef
-#  $(CP) $(PKG_BUILD_DIR)/bin/* $(1)/usr/include/jsoncpp
+
+define Package/shome-app/install
+    $(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/shome $(1)/usr/bin/
+endef
 
 $(eval $(call BuildPackage,shome-app))
