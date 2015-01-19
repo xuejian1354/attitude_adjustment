@@ -24,6 +24,7 @@ PKG_BUILD_PARALLEL:=1
 
 PKG_CONFIG_DEPENDS := \
 	CONFIG_PACKAGE_boost-atomic \
+	CONFIG_PACKAGE_boost-chrono \
 	CONFIG_PACKAGE_boost-date_time \
 	CONFIG_PACKAGE_boost-filesystem \
 	CONFIG_PACKAGE_boost-graph \
@@ -164,7 +165,7 @@ endef
 define Package/boost-timer
   $(call Package/boost/Default)
   TITLE+= (timer)
-  DEPENDS+= boost-chrono
+  DEPENDS+= +boost-chrono
 endef
 
 define Package/boost-wave

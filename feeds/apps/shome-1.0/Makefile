@@ -39,8 +39,7 @@ define Package/shome-app
 			+boost-program_options +boost-regex \
 			+boost-serialization +boost-signals \
 			+boost-locale +boost-random \
-			+boost-thread +boost-wave \
-
+			+boost-thread
 endef
 
 define Package/shome-app/description
@@ -52,7 +51,8 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	echo "Hello World!"
+	echo $(INSTALL_DIR)
 endef
+#  $(CP) $(PKG_BUILD_DIR)/bin/* $(1)/usr/include/jsoncpp
 
 $(eval $(call BuildPackage,shome-app))
