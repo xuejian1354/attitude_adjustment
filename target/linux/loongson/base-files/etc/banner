@@ -2,11 +2,11 @@
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
-          |__| L O O N G S O N   S O C
+          |__|  L Y L S 1 B   B O A R D
  -----------------------------------------------------
  ATTITUDE ADJUSTMENT (%C, 12.09)
  -----------------------------------------------------
-   * 1 loongson soc support
-   * 2 lysoc dev boards
+   * 1 loongson ls1b soc support
+   * 2 lysoc dev board
    * 3 loongsky application development
  -----------------------------------------------------
