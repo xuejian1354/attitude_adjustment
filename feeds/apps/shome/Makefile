@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shome
-PKG_VERSION:=2015-01-19
+PKG_VERSION:=2015-03-10
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git@192.168.1.111:openwrt/shome.git
+PKG_SOURCE_URL:=$(CONFIG_PACKAGE_shome-gitsite)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=7f7c56bbf4a7e61df52863d4ff873391960e219a
+PKG_SOURCE_VERSION:=$(CONFIG_PACKAGE_shome-version)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=Sam Chen <xuejian1354@gmail.com>
 
@@ -35,13 +35,17 @@ define Package/shome/Default
   MAINTAINER:=Sam Chen <xuejian1354@gmail.com>
 endef
 
+define Package/shome-app/config
+  source "$(SOURCE)/Config.in"
+endef
+
 define Package/shome-app
   $(call Package/shome/Default)
   TITLE:=SHome, Projects for Smart Home Applications
   DEPENDS:= +libsqlite3 +libjsoncpp +pjsip-api \
 			+boost-chrono +boost-system \
 			+boost-regex +boost-date_time \
-			+boost-thread +libopenssl
+			+boost-thread +libopenssl +libuuid
 endef
 
 define Package/shome-app/description
@@ -49,7 +53,10 @@ SHome app is a program that manage smart home feature function.
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) all
+	$(MAKE) -C $(PKG_BUILD_DIR) \
+	prefix=$(patsubst %uclibc-,%,$(TARGET_CROSS)) \
+	FIXFLAGS="-I$(STAGING_DIR)/usr/include/pjsip \
+	  -L$(STAGING_DIR)/usr/lib/pjsip -L$(STAGING_DIR)/usr/lib/jsoncpp"
 endef
 
 define Build/InstallDev
