@@ -3,7 +3,6 @@
 .*.swp
 *.index
 *.tmp
-*.svn
 /env
 /dl
 /.config
