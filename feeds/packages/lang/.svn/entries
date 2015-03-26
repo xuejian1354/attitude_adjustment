@@ -1,0 +1,274 @@
+10
+
+dir
+44685
+svn://svn.openwrt.org/openwrt/branches/packages_12.09/lang
+svn://svn.openwrt.org/openwrt
+
+
+
+2013-04-30T19:44:35.028892Z
+36503
+juhosg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3c298f89-4303-0410-b956-a3cf2f4a3e73
+
+telepathy-python
+dir
+
+arm
+dir
+
+perl-compress-bzip2
+dir
+
+simplejson
+dir
+
+logilab-astng
+dir
+
+python-curl
+dir
+
+psycopg
+dir
+
+perl-www-mechanize
+dir
+
+mako
+dir
+
+pyserial
+dir
+
+pyxdg
+dir
+
+pypcap
+dir
+
+perl-dbi
+dir
+
+python-crypto
+dir
+
+python-eeml
+dir
+
+egenix-mx
+dir
+
+python-mimms
+dir
+
+perl
+dir
+
+python-ifconfig
+dir
+
+sigscheme
+dir
+
+perl-net-telnet
+dir
+
+php-pear-xmlrpc
+dir
+
+perl-lockfile-simple
+dir
+
+python
+dir
+
+pyclips
+dir
+
+perl-www
+dir
+
+pygobject
+dir
+
+eggdrop
+dir
+
+pyevent
+dir
+
+python-cjson
+dir
+
+urbi
+dir
+
+pyusb
+dir
+
+luaposix
+dir
+
+python-webpy
+dir
+
+erlang
+dir
+
+pysqlite
+dir
+
+python2-chardet
+dir
+
+xapian-bindings
+dir
+
+gst-python
+dir
+
+pymysql
+dir
+
+distribute
+dir
+
+luaexpat
+dir
+
+python-flup
+dir
+
+luafilesystem
+dir
+
+python-json
+dir
+
+perl-html-tagset
+dir
+
+pybluez
+dir
+
+luasocket
+dir
+
+php-pear-db
+dir
+
+4th
+dir
+
+pyrrd
+dir
+
+perl-html-tree
+dir
+
+sqlite3-ruby
+dir
+
+luasoap
+dir
+
+kid
+dir
+
+numpy
+dir
+
+python-sip
+dir
+
+php4
+dir
+
+luasec
+dir
+
+python-pyosc
+dir
+
+php-pear
+dir
+
+php5
+dir
+
+ruby
+dir
+
+python-django
+dir
+
+tcl
+dir
+
+twisted
+dir
+
+luaprofiler
+dir
+
+jsonpath
+dir
+
+yapsnmp
+dir
+
+perl-www-curl
+dir
+
+ipython
+dir
+
+python-imaging-library
+dir
+
+pyopenssl
+dir
+
+perl-html-parser
+dir
+
+perl-uri
+dir
+
+logilab-common
+dir
+
+lsqlite3
+dir
+
+luasql
+dir
+
+cython
+dir
+
+jamvm
+dir
+
+pyyaml
+dir
+
+python-dbus
+dir
+
