@@ -22,3 +22,5 @@
 *#
 .emacs.desktop*
 TAGS*~
+scripts/config/conf
+scripts/config/mconf
