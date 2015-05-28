@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=connect_listen
-PKG_VERSION:=2015-03-18
+PKG_VERSION:=2015-05-28
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 
@@ -50,7 +50,8 @@ Connector app is a program that manage smart home feature function.
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) all prefix=$(TARGET_CROSS)
+	$(MAKE) -C $(PKG_BUILD_DIR) connect_listen cprefix=$(TARGET_CROSS)
+	$(MAKE) -C $(PKG_BUILD_DIR)/tests perznet prefix=$(TARGET_CROSS)
 endef
 
 define Build/InstallDev
@@ -59,8 +60,10 @@ endef
 define Package/connect-listen/install
     $(INSTALL_DIR) $(1)/usr/local/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/connect_listen $(1)/usr/local/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tests/perznet $(1)/usr/local/bin/
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/connect_listen.init $(1)/etc/init.d/connect_listen
+	$(INSTALL_BIN) ./files/balance_serlist $(1)/etc/balance_serlist
 endef
 
 $(eval $(call BuildPackage,connect-listen))
