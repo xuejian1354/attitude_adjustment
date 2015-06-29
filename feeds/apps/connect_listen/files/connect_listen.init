@@ -4,6 +4,6 @@
 START=89
 
 start() {
-	/usr/local/bin/connect_listen /dev/ttyS1 11566 11576
+	/usr/local/bin/connect_listen /dev/ttyS1 11565 11578
 }
 
