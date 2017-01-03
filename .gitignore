@@ -23,3 +23,8 @@
 TAGS*~
 scripts/config/conf
 scripts/config/mconf
+scripts/config/lex.zconf.c
+scripts/config/lxdialog/lxdialog
+scripts/config/zconf.hash.c
+scripts/config/zconf.tab.c
+
