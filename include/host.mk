@@ -41,7 +41,7 @@ $(TMP_DIR)/.host.mk: $(TOPDIR)/include/host.mk
 		echo "HOST_OS:=$$HOST_OS" > $@; \
 		echo "HOST_ARCH:=$$HOST_ARCH" >> $@; \
 		echo "GNU_HOST_NAME:=$$GNU_HOST_NAME" >> $@; \
-		MKYAFFS2=/usr/bin/mkyaffs2image; \
+		MKYAFFS2=$(TOPDIR)/target/imagebuilder/mkyaffs2image; \
 		echo "MKYAFFS2:=$$MKYAFFS2" >> $@; \
 		TAR=`which gtar 2>/dev/null`; \
 		[ -n "$$TAR" -a -x "$$TAR" ] || TAR=`which gnutar 2>/dev/null`; \
