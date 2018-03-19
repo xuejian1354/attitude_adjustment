@@ -595,7 +595,7 @@ endef
 $(eval $(call collection,,\
 	Standard OpenWrt set including full admin with ppp support and the \
 	default OpenWrt theme,\
-	+uhttpd +luci-mod-admin-full +luci-theme-openwrt +luci-app-firewall \
+	+uhttpd +luci-mod-admin-full +luci-theme-bootstrap +luci-app-firewall \
 	+luci-proto-core +luci-proto-ppp +libiwinfo-lua))
 
 $(eval $(call collection,ssl,\
@@ -604,7 +604,7 @@ $(eval $(call collection,ssl,\
 
 $(eval $(call collection,light,\
 	Minimum package set using only admin mini and the standard theme,\
-	+uhttpd +luci-mod-admin-mini +luci-theme-openwrt @BROKEN))
+	+uhttpd +luci-mod-admin-mini +luci-theme-bootstrap @BROKEN))
 
 
 ### Compile ###

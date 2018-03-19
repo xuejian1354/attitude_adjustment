@@ -29,7 +29,6 @@ include $(INCLUDE_DIR)/package.mk
 define Package/connector/Default
   SECTION:=apps
   CATEGORY:=Apps
-  SUBMENU:=Smart Home/Application
   URL:=$(TOPDIR)/src
   DEPENDS:=+libpthread +librt
   MAINTAINER:=Sam Chen <xuejian1354@gmail.com>

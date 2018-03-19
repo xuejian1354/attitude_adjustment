@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # OpenWrt version: Attitude Adjustment (unknown)
-# Tue Jan  3 20:23:28 2017
+# Mon Mar 19 10:55:25 2018
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -47,7 +47,9 @@ CONFIG_TARGET_loongson=y
 # CONFIG_TARGET_rdc is not set
 # CONFIG_TARGET_au1000 is not set
 # CONFIG_TARGET_ramips is not set
+# CONFIG_TARGET_ralink is not set
 # CONFIG_TARGET_s3c24xx is not set
+# CONFIG_TARGET_s5pv210 is not set
 # CONFIG_TARGET_ps3 is not set
 # CONFIG_TARGET_sparc is not set
 # CONFIG_TARGET_ar7 is not set
@@ -85,10 +87,12 @@ CONFIG_TARGET_loongson_ls1b=y
 # CONFIG_TARGET_orion_harddisk is not set
 # CONFIG_TARGET_orion_dns323 is not set
 # CONFIG_TARGET_ps3_petitboot is not set
+# CONFIG_TARGET_ralink_mt7620 is not set
 # CONFIG_TARGET_ramips_rt288x is not set
 # CONFIG_TARGET_ramips_rt305x is not set
 # CONFIG_TARGET_ramips_rt3883 is not set
 # CONFIG_TARGET_s3c24xx_openmoko_gta02 is not set
+# CONFIG_TARGET_s5pv210_tq210 is not set
 # CONFIG_TARGET_x86_generic is not set
 # CONFIG_TARGET_x86_olpc is not set
 # CONFIG_TARGET_x86_xen_domu is not set
@@ -335,6 +339,8 @@ CONFIG_TARGET_loongson_ls1b_Generic=y
 # CONFIG_TARGET_pxa_Default is not set
 # CONFIG_TARGET_pxa_Gumstix is not set
 # CONFIG_TARGET_pxcab_Default is not set
+# CONFIG_TARGET_ralink_mt7620_Default is not set
+# CONFIG_TARGET_ralink_mt7620_PBX20 is not set
 # CONFIG_TARGET_ramips_rt288x_Default is not set
 # CONFIG_TARGET_ramips_rt288x_RTN15 is not set
 # CONFIG_TARGET_ramips_rt288x_F5D8235V1 is not set
@@ -361,6 +367,7 @@ CONFIG_TARGET_loongson_ls1b_Generic=y
 # CONFIG_TARGET_realview_Default is not set
 # CONFIG_TARGET_s3c24xx_openmoko_gta02_openmoko-gta02-minimal is not set
 # CONFIG_TARGET_s3c24xx_openmoko_gta02_openmoko-gta02-full is not set
+# CONFIG_TARGET_s5pv210_tq210_Generic is not set
 # CONFIG_TARGET_sibyte_Default is not set
 # CONFIG_TARGET_sparc_Default is not set
 # CONFIG_TARGET_ubicom32_Default is not set
@@ -1547,7 +1554,7 @@ CONFIG_PACKAGE_luci-theme-base=y
 CONFIG_PACKAGE_luci-theme-bootstrap=y
 # CONFIG_PACKAGE_luci-theme-freifunk-bno is not set
 # CONFIG_PACKAGE_luci-theme-freifunk-generic is not set
-CONFIG_PACKAGE_luci-theme-openwrt=y
+# CONFIG_PACKAGE_luci-theme-openwrt is not set
 
 #
 # 5. Translations
@@ -1940,6 +1947,7 @@ CONFIG_PACKAGE_kmod-input-evdev=y
 # CONFIG_PACKAGE_kmod-usb-net is not set
 # CONFIG_PACKAGE_kmod-usb-ohci is not set
 # CONFIG_PACKAGE_kmod-usb-printer is not set
+# CONFIG_PACKAGE_kmod-usb-rt305x-dwc_otg is not set
 # CONFIG_PACKAGE_kmod-usb-serial is not set
 # CONFIG_PACKAGE_kmod-usb-sierrawireless-directip is not set
 # CONFIG_PACKAGE_kmod-usb-storage is not set
@@ -2062,6 +2070,12 @@ CONFIG_PACKAGE_kmod-input-evdev=y
 # Video Streaming
 #
 # CONFIG_PACKAGE_openrtsp is not set
+
+#
+# Apps
+#
+# CONFIG_PACKAGE_connect-listen is not set
+# CONFIG_PACKAGE_uartsocket is not set
 
 #
 # Mail
@@ -2879,6 +2893,7 @@ CONFIG_PACKAGE_libsqlite3=y
 # CONFIG_PACKAGE_boost-system is not set
 # CONFIG_PACKAGE_boost-test is not set
 # CONFIG_PACKAGE_boost-thread is not set
+# CONFIG_PACKAGE_boost-timer is not set
 # CONFIG_PACKAGE_boost-wave is not set
 # CONFIG_PACKAGE_ccid is not set
 # CONFIG_PACKAGE_cgilib is not set
@@ -2993,6 +3008,7 @@ CONFIG_PACKAGE_libiwinfo=y
 # CONFIG_PACKAGE_libjs is not set
 # CONFIG_PACKAGE_libjson is not set
 CONFIG_PACKAGE_libjson-c=y
+# CONFIG_PACKAGE_libjsoncpp is not set
 # CONFIG_PACKAGE_libldns is not set
 # CONFIG_PACKAGE_libleptonica is not set
 # CONFIG_PACKAGE_libltdl is not set
@@ -3120,6 +3136,7 @@ CONFIG_PACKAGE_libxml2=y
 # CONFIG_PACKAGE_mxml is not set
 # CONFIG_PACKAGE_nacl is not set
 # CONFIG_PACKAGE_phidget21 is not set
+# CONFIG_PACKAGE_pjsip-api is not set
 # CONFIG_PACKAGE_poco is not set
 # CONFIG_PACKAGE_protobuf is not set
 # CONFIG_PACKAGE_ptlib is not set
